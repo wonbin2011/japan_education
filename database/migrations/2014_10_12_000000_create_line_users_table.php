@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateLineUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name', 32);
             $table->string('email',64)->nullable();
             $table->string('provider', 12);
-            $table->string('provider_id',32);
+            $table->string('provider_id',128);
             $table->text('avatar');
             $table->timestamps();
 
