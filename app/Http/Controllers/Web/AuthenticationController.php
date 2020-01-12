@@ -35,13 +35,13 @@ class AuthenticationController extends Controller {
         $user = User::where( 'provider_id', '=', $socialUser->id )
                     ->where( 'provider', '=', $account )
                     ->first();
-
-        if (!$user) {
+        
+        if (empty($user)) {
             // 如果该用户不存在则将其保存到 users 表
             $newUser = new User();
 
             $newUser->name        = $socialUser->getName();
-            $newUser->email       = $socialUser->getEmail() == '' ? '' : $socialUser->getEmail();
+            $newUser->email       = $socialUser->getEmail()  ?: '';
             $newUser->avatar      = $socialUser->getAvatar();
             $newUser->provider    = $account;
             $newUser->provider_id = $socialUser->getId();
