@@ -29,16 +29,13 @@ class AuthenticationController extends Controller {
     public function getSocialCallback($account)
     {
         // 从第三方 OAuth 回调中获取用户信息
-//        $socialUser = Socialite::driver($account)->stateless()->user();
+        $socialUser = Socialite::driver($account)->stateless()->user();
 
         // 在本地 users 表中查询该用户来判断是否已存在
-//        $user = User::where( 'provider_id', '=', $socialUser->id )
-//                    ->where( 'provider', '=', $account )
-//                    ->first();
-        $user = User::where( 'provider_id', '=', "U892ae295edb389f69df17301a8e98979" )
-                    ->where( 'provider', '=', "line" )
+        $user = User::where( 'provider_id', '=', $socialUser->id )
+                    ->where( 'provider', '=', $account )
                     ->first();
-        $socialUser = null;
+
         if (!$user) {
             // 如果该用户不存在则将其保存到 users 表
             $newUser = new User();
