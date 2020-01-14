@@ -42,7 +42,7 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
         ],
     ],
@@ -69,6 +69,16 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\LineUser::class,
         ],
+
+        'Student' =>  [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ],
+        'Teacher' =>  [
+            'driver' => 'eloquent',
+            'model' => App\Models\Teacher::class,
+        ],
+
 
         // 'users' => [
         //     'driver' => 'database',

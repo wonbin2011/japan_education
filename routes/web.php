@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'Web\AppController@getApp')
-     ->middleware('auth');
+     /*->middleware('auth')*/;
 
 Route::get('/login', 'Web\AppController@getLogin' )
      ->name('login')

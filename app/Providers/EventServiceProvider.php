@@ -18,7 +18,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         'SocialiteProviders\Manager\SocialiteWasCalled' => [
             'SocialiteProviders\Line\LineExtendSocialite@handle',
-        ]
+        ],
+        'Laravel\Passport\Events\AccessTokenCreated' => [
+            'App\Listeners\PassportAccessTokenCreated',
+        ],
     ];
 
     /**
