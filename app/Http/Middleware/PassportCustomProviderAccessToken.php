@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\DB;
 use League\OAuth2\Server\ResourceServer;
 use Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory;
+use App\Exceptions\UnauthorizedException;
 
 class PassportCustomProviderAccessToken
 {
@@ -39,7 +40,7 @@ class PassportCustomProviderAccessToken
                 }
             }
         } catch (\Exception $e) {
-            dd($e);
+            throw  new UnauthorizedException('请求失败，服务器错误');
         }
 
         return $next($request);

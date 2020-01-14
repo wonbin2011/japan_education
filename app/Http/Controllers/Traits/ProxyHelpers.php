@@ -27,8 +27,7 @@ trait ProxyHelpers
 
             $respond = $client->request('POST', $url, ['form_params' => $params]);
         } catch (RequestException $exception) {
-            dd($exception);
-//            throw  new UnauthorizedException('请求失败，服务器错误');
+            throw  new UnauthorizedException('请求失败，服务器错误');
         }
 
         if ($respond->getStatusCode() !== 401) {

@@ -19,7 +19,6 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
-        \App\Http\Middleware\PassportCustomProviderAccessToken::class,
     ];
 
     /**
@@ -59,5 +58,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'passport-edu' => \App\Http\Middleware\EduCustom::class,
+        'passport.token' => \App\Http\Middleware\PassportCustomProviderAccessToken::class,
     ];
 }

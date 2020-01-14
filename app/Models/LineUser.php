@@ -6,13 +6,11 @@ use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Laravel\Passport\HasApiTokens;
 
 
 class LineUser extends Authenticatable
 {
     use Notifiable;
-    use HasApiTokens;
 
     protected $table = "line_users";
     protected $models = [Student::class, Teacher::class];

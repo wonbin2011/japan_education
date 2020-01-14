@@ -17,6 +17,12 @@ use Illuminate\Http\Request;
 class ApiController extends Controller {
 
     use ProxyHelpers;
+
+
+    public function __construct() {
+        $this->middleware('passport.token')->except(['login']);
+    }
+
     /*
      * login
      */
